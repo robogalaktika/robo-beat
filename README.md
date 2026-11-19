@@ -1,35 +1,35 @@
 # Robo Beat
 
-Drum machine sederhana dengan suara sintesis khas 80an, terinspirasi seri Roland "Human Rhythm Composer" (R-5/R-8). Teman ROBO/SOLO untuk Robo Galaktika. Jalan di browser HP, tanpa install dari store.
+A simple drum machine with synthesized 80s sounds, inspired by Roland's "Human Rhythm Composer" series (R-5/R-8). Companion to ROBO/SOLO for Robo Galaktika. Runs in a phone browser, no app store install needed.
 
-## Fitur
+## Features
 
-- **Grid 16 langkah, 8 instrumen**: kick, snare, clap, hat, open hat, tom hi, tom lo, cowbell. Semua suara disintesis (bergaya 808 dan Simmons).
-- **Ketuk kotak**: mati → pukul → aksen → mati.
-- **Pola A dan B**: berganti di akhir bar, jadi tidak pernah meleset. **FILL** main satu bar lalu kembali.
-- **HUMAN**: variasi kecil timing dan dinamika supaya beat tidak kaku, idenya dari R-5.
-- **Swing**, **tempo** dengan tombol tap, dan **mute** per instrumen (ketuk nama instrumen).
-- **Pad besar** untuk dimainkan langsung.
-- **7 pola siap pakai**: Synth Pop, New Wave, Disco 80an, Electro 808, Simmons 80an, Ballad, Kosong.
-- **Penyimpanan otomatis** di perangkat, dengan tombol Urungkan saat memuat pola atau mengosongkan bagian.
-- **Keyboard**: spasi untuk play/stop.
+- **16-step grid, 8 instruments**: kick, snare, clap, hat, open hat, tom hi, tom lo, cowbell. All sounds are synthesized (808 and Simmons style).
+- **Tap a cell**: off → hit → accent → off.
+- **Patterns A and B**: switch at the end of the bar, so they never land off-beat. **FILL** plays one bar, then returns.
+- **HUMAN**: small variations in timing and dynamics so the beat isn't stiff, an idea taken from the R-5.
+- **Swing**, **tempo** with tap tempo, and per-instrument **mute** (tap the instrument name).
+- **Big pads** for live playing.
+- **7 preset patterns**: Synth Pop, New Wave, 80s Disco, Electro 808, 80s Simmons, Ballad, Empty.
+- **Auto-save** on the device, with an Undo button when loading a pattern or clearing a section.
+- **Keyboard**: space to play/stop.
 
-## Online-kan dengan GitHub Pages
+## Put it online with GitHub Pages
 
-1. Buat repo baru di GitHub, misalnya `robo-beat`.
-2. Upload semua file di folder ini (**Add file → Upload files**).
-3. Buka **Settings → Pages**, lalu pada *Source* pilih **Deploy from a branch**, branch `main`, folder `/ (root)`, dan simpan.
-4. Tunggu 1–2 menit. Aplikasinya ada di `https://<username>.github.io/robo-beat/`.
+1. Create a new GitHub repo, e.g. `robo-beat`.
+2. Upload all files in this folder (**Add file → Upload files**).
+3. Open **Settings → Pages**, set *Source* to **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
+4. Wait 1–2 minutes. The app will be at `https://<username>.github.io/robo-beat/`.
 
-## Pasang di HP
+## Install on your phone
 
-Buka alamat tadi di Chrome atau Safari, lalu pilih **Tambahkan ke layar utama**.
+Open that address in Chrome or Safari and choose **Add to Home Screen**.
 
-## File
+## Files
 
-| File | Fungsi |
+| File | Purpose |
 |---|---|
-| `index.html` | Seluruh aplikasi |
-| `manifest.webmanifest` | Data untuk "Tambahkan ke layar utama" |
-| `icon-192.png`, `icon-512.png` | Ikon aplikasi |
-| `.nojekyll` | Supaya GitHub Pages menyajikan file apa adanya |
+| `index.html` | The whole app |
+| `manifest.webmanifest` | Data for "Add to Home Screen" |
+| `icon-192.png`, `icon-512.png` | App icons |
+| `.nojekyll` | Makes GitHub Pages serve the files as they are |

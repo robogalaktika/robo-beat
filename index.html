@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -13,18 +13,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: alat panggung, tegas, satu layar — kakak-beradik ROBO/SOLO
-   IDEA: panel depan drum machine 1989: grid 16 langkah dan pad karet
-   PICTURE: grid langkah besar dengan kepala putar merah yang berjalan
-   COLOUR: abu beton #2a2b2e, tinta krem-putih, aksen merah panel #e23b2e, aksen kuat putih-biru #d9f2ff
-   TYPE: Michroma huruf panel, Archivo teks; LAYOUT: bar kontrol tipis di atas, grid memenuhi layar, pad di kanan (layar lebar) */
+/* VOICE: a stage instrument, direct, one screen; sibling of ROBO/SOLO
+   IDEA: front panel of a 1989 drum machine: 16-step grid and rubber pads
+   PICTURE: a big step grid with a moving red playhead
+   COLOUR: concrete grey #2a2b2e, cream-white ink, panel red accent #e23b2e, white-blue highlight #d9f2ff
+   TYPE: Michroma for panel lettering, Archivo for text; LAYOUT: slim control bar on top, grid fills the screen, pads on the right (wide screens) */
 :root{color-scheme:dark;--bg:#1c1d20;--panel:#2a2b2e;--panel2:#35363a;--ink:#f1efe9;--dim:#a9a7a0;--red:#e23b2e;--hi:#d9f2ff;--line:#46474c;--cell:#26272b}
 *{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 Archivo,system-ui,sans-serif;overflow:hidden;overscroll-behavior:none;user-select:none;-webkit-user-select:none}
 #app{display:flex;flex-direction:column;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 header{display:flex;align-items:center;gap:6px;padding:6px 8px;background:var(--panel);border-bottom:2px solid #111;overflow-x:auto;scrollbar-width:none;flex:none}
 header::-webkit-scrollbar{display:none}
-.logo{font-family:Michroma,sans-serif;font-size:13px;white-space:nowrap;padding-right:4px}.logo b{color:var(--red)}
+.logo{flex:none;font-family:Michroma,sans-serif;font-size:13px;white-space:nowrap;padding-right:4px}.logo b{color:var(--red)}
 .btn{font:600 13px Archivo,sans-serif;color:var(--ink);background:var(--panel2);border:1px solid #111;border-radius:6px;height:40px;min-width:40px;padding:0 10px;cursor:pointer;white-space:nowrap;box-shadow:inset 0 1px 0 #ffffff14;flex:none}
 .btn.on{background:var(--red);border-color:#7a1810;color:#fff}
 .btn.q{animation:blink .5s steps(1) infinite}
@@ -77,28 +77,28 @@ select{font:600 14px Archivo,sans-serif;color:var(--ink);background:var(--panel2
 <header>
   <div class="logo">ROBO<b>/</b>BEAT</div>
   <button class="btn" id="play">PLAY</button>
-  <div class="bpm"><button class="btn" id="bD" aria-label="Tempo turun">−</button><span id="bV">120</span><button class="btn" id="bU" aria-label="Tempo naik">+</button></div>
+  <div class="bpm"><button class="btn" id="bD" aria-label="Tempo down">−</button><span id="bV">120</span><button class="btn" id="bU" aria-label="Tempo up">+</button></div>
   <button class="btn" id="tap">TAP</button>
   <div class="sec" id="sec"><button class="btn" data-s="A">A</button><button class="btn" data-s="B">B</button><button class="btn" data-s="F">FILL</button></div>
-  <button class="btn" id="hum" title="Variasi kecil timing dan dinamika">HUMAN</button>
+  <button class="btn" id="hum" title="Small random variations in timing and dynamics">HUMAN</button>
   <div class="sp"></div>
   <button class="btn" id="padB">PAD</button>
   <button class="btn" id="menuB">MENU</button>
 </header>
 <main>
-  <div id="grid" aria-label="Grid 16 langkah"></div>
+  <div id="grid" aria-label="16-step grid"></div>
   <div id="pads"></div>
 </main>
-<div id="rot">Putar HP ke landscape</div>
-<div id="toast"><span id="tMsg"></span><button class="btn" id="undo">Urungkan</button></div>
+<div id="rot">Rotate your phone to landscape</div>
+<div id="toast"><span id="tMsg"></span><button class="btn" id="undo">Undo</button></div>
 <aside id="menu" aria-label="Menu">
-  <h2>MENU <button class="btn" id="menuX">Tutup</button></h2>
-  <div class="row"><label for="pre">Pola siap pakai</label><select id="pre" style="grid-column:span 2"></select></div>
-  <div class="row"><label></label><button class="btn" id="load" style="grid-column:span 2">Muat pola ini</button></div>
+  <h2>MENU <button class="btn" id="menuX">Close</button></h2>
+  <div class="row"><label for="pre">Preset pattern</label><select id="pre" style="grid-column:span 2"></select></div>
+  <div class="row"><label></label><button class="btn" id="load" style="grid-column:span 2">Load this pattern</button></div>
   <div class="row"><label for="swing">Swing</label><input type="range" id="swing" min="0" max="0.5" step="0.01"><output></output></div>
   <div class="row"><label for="vol">Volume</label><input type="range" id="vol" min="0" max="1" step="0.01"><output></output></div>
-  <div class="row"><label></label><button class="btn" id="clr" style="grid-column:span 2">Kosongkan bagian ini</button></div>
-  <p class="note">Ketuk kotak: mati → pukul → <b style="color:var(--red)">aksen</b> → mati.<br>Ketuk nama instrumen untuk mute.<br>A/B berganti di akhir bar. FILL main satu bar lalu kembali.<br>Semua pola tersimpan otomatis di perangkat ini.</p>
+  <div class="row"><label></label><button class="btn" id="clr" style="grid-column:span 2">Clear this section</button></div>
+  <p class="note">Tap a cell: off → hit → <b style="color:var(--red)">accent</b> → off.<br>Tap an instrument name to mute it.<br>A/B switch at the end of the bar. FILL plays one bar, then returns.<br>All patterns are saved automatically on this device.</p>
 </aside>
 </div>
 <script>
@@ -107,11 +107,11 @@ const TR=[['kick','KICK'],['snare','SNARE'],['clap','CLAP'],['ch','HAT'],['oh','
 const PRE=[
  ['Synth Pop',120,{kick:'X...X...X...X...',snare:'....X.......X...',clap:'....x.......x...',ch:'x.x.x.x.x.x.x.x.'}],
  ['New Wave',138,{kick:'X.....x.X.......',snare:'....X.......X...',ch:'XxxxXxxxXxxxXxxx'}],
- ['Disco 80an',122,{kick:'X...X...X...X...',snare:'....X.......X...',clap:'............x...',ch:'x...x...x...x...',oh:'..x...x...x...x.'}],
+ ['80s Disco',122,{kick:'X...X...X...X...',snare:'....X.......X...',clap:'............x...',ch:'x...x...x...x...',oh:'..x...x...x...x.'}],
  ['Electro 808',112,{kick:'X.....X...X...x.',snare:'....X.......X...',clap:'....X.......X...',ch:'x.x.x.x.x.x.x.xx',cb:'...x......x.....'}],
- ['Simmons 80an',104,{kick:'X..x..X...X.....',snare:'....X.......X...',ch:'x.x.x.x.x.x.x.x.',th:'..........x.x...',tl:'..............X.'}],
+ ['80s Simmons',104,{kick:'X..x..X...X.....',snare:'....X.......X...',ch:'x.x.x.x.x.x.x.x.',th:'..........x.x...',tl:'..............X.'}],
  ['Ballad',78,{kick:'X.......X.x.....',snare:'....X.......X...',ch:'x.x.x.x.x.x.x.x.',oh:'..............x.'}],
- ['Kosong',120,{}]];
+ ['Empty',120,{}]];
 const parse=s=>Array.from({length:16},(_,i)=>s&&s[i]==='X'?2:s&&s[i]==='x'?1:0);
 function mk(p){const A=TR.map(([k])=>parse(p[k])),B=A.map(r=>r.slice()),F=A.map(r=>r.slice());
  const I=Object.fromEntries(TR.map(([k],i)=>[k,i]));
@@ -187,8 +187,8 @@ $('menuB').onclick=()=>$('menu').classList.toggle('open');$('menuX').onclick=()=
 $('pre').innerHTML=PRE.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} BPM</option>`).join('');$('pre').value=st.pre;
 let prev=null,tt;const toast=m=>{$('tMsg').textContent=m;$('toast').classList.add('show');clearTimeout(tt);tt=setTimeout(()=>$('toast').classList.remove('show'),5000)};
 const snap=()=>JSON.stringify({pat:st.pat,bpm:st.bpm,pre:st.pre});
-$('load').onclick=()=>{prev=snap();const i=+$('pre').value;st.pre=i;st.pat=mk(PRE[i][2]);st.bpm=PRE[i][1];paint();ui();save();$('menu').classList.remove('open');toast('Pola "'+PRE[i][0]+'" dimuat')};
-$('clr').onclick=()=>{prev=snap();st.pat[st.sec]=TR.map(()=>Array(16).fill(0));paint();save();toast('Bagian '+(st.sec==='F'?'FILL':st.sec)+' dikosongkan')};
+$('load').onclick=()=>{prev=snap();const i=+$('pre').value;st.pre=i;st.pat=mk(PRE[i][2]);st.bpm=PRE[i][1];paint();ui();save();$('menu').classList.remove('open');toast('Pattern "'+PRE[i][0]+'" loaded')};
+$('clr').onclick=()=>{prev=snap();st.pat[st.sec]=TR.map(()=>Array(16).fill(0));paint();save();toast('Section '+(st.sec==='F'?'FILL':st.sec)+' cleared')};
 $('undo').onclick=()=>{if(prev){Object.assign(st,JSON.parse(prev));$('pre').value=st.pre;prev=null;paint();ui();save()}$('toast').classList.remove('show')};
 const fmt={swing:v=>Math.round(v*100)+'%',vol:v=>Math.round(v*100)+'%'};
 Object.keys(fmt).forEach(k=>{const el=$(k);el.value=st[k];el.nextElementSibling.textContent=fmt[k](st[k]);el.oninput=()=>{st[k]=+el.value;el.nextElementSibling.textContent=fmt[k](st[k]);if(k==='vol'&&out)out.gain.setTargetAtTime(st.vol,ctx.currentTime,.02);save()}});
@@ -196,7 +196,7 @@ Object.keys(fmt).forEach(k=>{const el=$(k);el.value=st[k];el.nextElementSibling.
 $('pads').innerHTML=TR.map(([k,n])=>`<div class="pad" data-k="${k}">${n}</div>`).join('');
 $('pads').addEventListener('pointerdown',e=>{const p=e.target.closest('.pad');if(!p)return;e.preventDefault();init();V[p.dataset.k](ctx.currentTime,1);p.classList.add('hit');setTimeout(()=>p.classList.remove('hit'),90)});
 addEventListener('keydown',e=>{if(e.code==='Space'&&e.target===document.body){e.preventDefault();playing?stop():start()}});
-// visual playhead: grid ikut menampilkan FILL selama bar fill berbunyi
+// visual playhead: the grid shows FILL while the fill bar is playing
 function frame(){if(playing&&ctx){while(vis.length&&vis[0][0]<=ctx.currentTime){const[,s,sec]=vis.shift();const f=sec==='F'&&st.sec!=='F';
   if(f!==playF){playF=f;paint()}showStep(s);if(s===0)ui()}}requestAnimationFrame(frame)}
 paint();ui();requestAnimationFrame(frame);
